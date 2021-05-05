@@ -1,4 +1,4 @@
-package jnilib
+package mill.jnilib
 
 // Adapted from Glavo's gjavah library https://github.com/Glavo/gjavah, released
 // under MIT license

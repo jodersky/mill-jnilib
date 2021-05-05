@@ -1,13 +1,13 @@
-# mill-jni
+# mill-jnilib
 
 Some mill plugins to ease working with Java's Native Interface (JNI).
 
 This includes two modules:
 
-- <<jnilib.JavahModule>>
-- <<jnilib.CLibModule>>
+- <<mill.jnilib.JavahModule>>
+- <<mill.jnilib.CLibModule>>
 
-## jnilib.JavahModule
+## mill.jnilib.JavahModule
 
 This module implements C header generation from methods declared as `native` in
 your Scala or Java code. It provides a `javah` command, which is similar to the
@@ -29,7 +29,7 @@ class NativeWrapper {
 
 ```scala
 import TODO
-import jnilib.JavahModule
+import mill.jnilib.JavahModule
 
 object app extends ScalaModule with JavahModule {
   def scalaVersion = "3.0.0-RC3"
@@ -74,13 +74,13 @@ example, class `foo.bar.Wrapper` will be generated in `src/foo/bar/Wrapper.h`.
 The base directory is configurable by overriding the `javahOutputDirectory`
 target.
 
-### jnilib.JavahModule/findIncludes
+### mill.jnilib.JavahModule/findIncludes
 
-The `jnilib.JavahModule` companion object has a method to look up the include
+The `mill.jnilib.JavahModule` companion object has a method to look up the include
 paths of the system-wide JNI header files.
 
 ```
-mill show jnilib.JavahModule/findIncludes
+mill show mill.mill.jnilib.JavahModule/findIncludes
 
 [
     "/usr/lib/jvm/java-11-openjdk-amd64/include",
@@ -91,8 +91,8 @@ mill show jnilib.JavahModule/findIncludes
 This can be used to resolve `#include <jni.h>` when it comes to compiling the
 C/C++ library.
 
-## jnilib.CLibModule
+## mill.jnilib.CLibModule
 
 The `CLibModule` wraps a C/C++ compiler toolchain (e.g. `gcc` or `clang`) to
 build a native library. This module is often used in conjuction with
-<<jnilib.JavahModule>> to build the native backend within the same project.
+<<mill.jnilib.JavahModule>> to build the native backend within the same project.

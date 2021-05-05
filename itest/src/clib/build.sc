@@ -1,5 +1,5 @@
 import $exec.plugins
-import jnilib.CLibModule
 import mill._
+import jnilib.CLibModule
 
 object app extends CLibModule

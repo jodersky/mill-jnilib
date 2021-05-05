@@ -1,4 +1,4 @@
-package jnilib
+package mill.jnilib
 
 import mill.PathRef
 import mill.T

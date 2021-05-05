@@ -18,15 +18,17 @@ object jnilib extends ScalaModule with PublishModule {
 
   def publishVersion = "0.1.0"
   def pomSettings = PomSettings(
-    description = "mill-jni",
+    description = "jnilib",
     organization = "io.crashbox",
-    url = "https://github.com/jodersky/mill-jni",
-    licenses = Seq(License.MIT),
-    versionControl = VersionControl.github("jodersky", "mill-jni"),
+    url = "https://github.com/jodersky/mill-jnilib",
+    licenses = Seq(License.`BSD-3-Clause`),
+    versionControl = VersionControl.github("jodersky", "mill-jnilib"),
     developers = Seq(
       Developer("jodersky", "Jakob Odersky", "https://github.com/jodersky")
     )
   )
+
+  def artifactName = "mill-jnilib"
 }
 
 object itest extends MillIntegrationTestModule {
