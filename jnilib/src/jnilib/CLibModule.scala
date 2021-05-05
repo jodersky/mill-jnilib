@@ -55,6 +55,8 @@ trait CLibModule extends mill.Module {
 
   def compileFlags: T[Seq[String]] = T{ Seq("-fPIC", "-O3") }
 
+  def includes: T[Seq[PathRef]] = T { Seq.empty[PathRef] }
+
   def objects = T {
     // NOTE: currently we recompile all source files if headers or any c sources
     // change. It would be much smarter to establish a dependency graph of C
@@ -70,6 +72,7 @@ trait CLibModule extends mill.Module {
       val command = Seq[os.Shellable](
         compiler(),
         compileFlags(),
+        includes().map(p => s"-I${p.path}"),
         "-c",
         "-o", out.relativeTo(os.pwd),
         src.path.relativeTo(os.pwd) // use a relative path as it's easier to look at in logs

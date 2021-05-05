@@ -6,11 +6,10 @@ object app extends ScalaModule with JavahModule with CLibModule {
 
   def scalaVersion = "3.0.0-RC3"
 
-  def compileFlags = T{
-    super.compileFlags() ++
-      Seq(s"-I${lib1.millSourcePath / "src" / "include"}") ++
-      JavahModule.findIncludes().map(path => s"-I${path}")
-  }
+  def includes = T.sources(
+    Seq(PathRef(lib1.millSourcePath / "src" / "include")) ++
+    JavahModule.findIncludes()
+  )
 
   def linkFlags = T {
     super.linkFlags() ++ Seq(s"-L${lib1.link().path / os.up}", "-llib1")

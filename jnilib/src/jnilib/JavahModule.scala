@@ -32,7 +32,7 @@ object JavahModule extends mill.define.ExternalModule {
     * 2. If no JAVA_HOME has been set, try to find include directories of the
     *    JVM started by the system's 'java' command.
     */
-  def findIncludes: T[Seq[os.Path]] = T { findJniIncludes() }
+  def findIncludes: T[Seq[PathRef]] = T { findJniIncludes().map(p => PathRef(p)) }
 
   def findJniIncludes()(implicit ctx: mill.api.Ctx): Seq[os.Path] = {
     def reportFailure(message: String) = {

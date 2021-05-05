@@ -16,7 +16,7 @@ object jnilib extends ScalaModule with PublishModule {
     ivy"com.lihaoyi::mill-scalalib:$millVersion"
   )
 
-  def publishVersion = "0.1.0"
+  def publishVersion = "0.2.0"
   def pomSettings = PomSettings(
     description = "jnilib",
     organization = "io.crashbox",
