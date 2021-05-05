@@ -1,0 +1,3 @@
+#!/bin/bash
+
+antora generate --to-dir out/site antora-playbook.yml

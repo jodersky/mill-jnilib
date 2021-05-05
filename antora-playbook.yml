@@ -1,0 +1,13 @@
+site:
+  title: Mill JNI
+  start_page: mill-jni::overview.adoc
+content:
+  sources:
+  - url: .
+    branches: HEAD
+    start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./docs/supplemental_ui
