@@ -1,4 +1,4 @@
-import $ivy.`de.tototec::de.tobiasroeser.mill.integrationtest_mill0.9:0.4.0`
+import $ivy.`de.tototec::de.tobiasroeser.mill.integrationtest_mill0.10:0.5.0`
 import de.tobiasroeser.mill.integrationtest.MillIntegrationTestModule
 import mill._, scalalib._, publish._
 
@@ -9,14 +9,14 @@ object jnilib extends ScalaModule with PublishModule {
     "-release", "8"
   )
 
-  val millVersion = "0.9.6"
+  val millVersion = "0.10.1"
 
   override def compileIvyDeps = super.compileIvyDeps() ++ Agg(
     ivy"com.lihaoyi::mill-main:$millVersion",
     ivy"com.lihaoyi::mill-scalalib:$millVersion"
   )
 
-  def publishVersion = "0.2.0"
+  def publishVersion = "0.3.0"
   def pomSettings = PomSettings(
     description = "jnilib",
     organization = "io.crashbox",

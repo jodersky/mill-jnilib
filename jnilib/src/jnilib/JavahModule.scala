@@ -71,7 +71,7 @@ object JavahModule extends mill.define.ExternalModule {
       val base = os.root / "Library" / "Java" / "JavaVirtualMachines"
 
       if (!os.exists(base) || !os.isDir(base))
-        reportFailure(s"No java virtual machine could be found in '$base'")
+        return reportFailure(s"No java virtual machine could be found in '$base'")
 
       val candidates = os.list(base).map(p => p / "Contents" / "Home")
 
